@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF6FF"/>
+    </linearGradient>
+    <linearGradient id="layerBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2F6BFF"/>
+      <stop offset="100%" stop-color="#1F3A93"/>
+    </linearGradient>
+    <linearGradient id="layerLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F4FF"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1F3A93" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#1F3A93">系统总体架构</text>
+  <line x1="500" y1="55" x2="700" y2="55" stroke="#2F6BFF" stroke-width="2" opacity="0.3"/>
+
+  <!-- Layer 1: 表现层 -->
+  <rect x="40" y="75" width="1120" height="75" rx="10" fill="url(#layerLight)" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="40" y="75" width="6" height="75" rx="3" fill="#2F6BFF"/>
+  <text x="68" y="108" font-size="16" font-weight="700" fill="#1F3A93">表现层</text>
+  <text x="160" y="108" font-size="13" fill="#6B7A90">React 18 + TypeScript · 玻璃拟态设计系统 · 19 条路由 · 5 角色差异化导航</text>
+  <text x="160" y="130" font-size="12" fill="#8B9AB0">GlassCard · AuroraBackground · AIChatPanel · AIDecisionPanel · ApprovalProgressBar</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="600" y1="150" x2="600" y2="170" stroke="#2F6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2F6BFF"/></marker></defs>
+
+  <!-- Layer 2: API 网关层 -->
+  <rect x="40" y="175" width="1120" height="65" rx="10" fill="url(#layerLight)" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="40" y="175" width="6" height="65" rx="3" fill="#2F6BFF"/>
+  <text x="68" y="205" font-size="16" font-weight="700" fill="#1F3A93">API 网关层</text>
+  <text x="190" y="205" font-size="13" fill="#6B7A90">FastAPI · 14 个 Router 模块 · 99 个 API 端点 · JWT 认证中间件 · CORS · 请求日志</text>
+  <text x="190" y="225" font-size="12" fill="#8B9AB0">auth_router · ocr_router · approval_router · admin_router · dept_router · finance_router · school_router · monitor_router · dashboard_router · notification_router · announcement_router · resource_router · rag_router</text>
+
+  <line x1="600" y1="240" x2="600" y2="258" stroke="#2F6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: 业务服务层 -->
+  <rect x="40" y="263" width="1120" height="65" rx="10" fill="url(#layerLight)" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="40" y="263" width="6" height="65" rx="3" fill="#2F6BFF"/>
+  <text x="68" y="293" font-size="16" font-weight="700" fill="#1F3A93">业务服务层</text>
+  <text x="190" y="293" font-size="13" fill="#6B7A90">11 个 Service 模块 · SQLAlchemy ORM · LangGraph 状态机 · 事务管理 · 分层架构</text>
+  <text x="190" y="313" font-size="12" fill="#8B9AB0">ocr_service · approval_service · workflow(19类流程) · rule_engine · rag_service · notification_service · key_pool · redis_service · crypto_service · file_service · logging_service</text>
+
+  <line x1="600" y1="328" x2="600" y2="348" stroke="#2F6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 4: AI 智能层 -->
+  <rect x="40" y="353" width="1120" height="75" rx="10" fill="rgba(47,107,255,0.04)" stroke="#7C6BFF" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="353" width="6" height="75" rx="3" fill="#7C6BFF"/>
+  <text x="68" y="383" font-size="16" font-weight="700" fill="#7C6BFF">AI 智能层 ⚡</text>
+  <text x="190" y="383" font-size="13" fill="#6B7A90">云端 LLM（语义抽取 + 多模态 OCR）· 本地 Qwen3-14B（合规分析 + 政策问答）· RAG（TF-IDF 检索）· 规则引擎（兜底）</text>
+  <text x="190" y="410" font-size="12" fill="#8B9AB0">DashScope API (qwen-turbo / qwen-vl-max) → llama.cpp + Qwen3-14B GGUF → EasyOCR → pypdf → scikit-learn TF-IDF → MLX LoRA 训练管线</text>
+
+  <line x1="600" y1="428" x2="600" y2="448" stroke="#2F6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 5 + 6 side by side: Data + Cache/Infra -->
+  <rect x="40" y="453" width="545" height="70" rx="10" fill="url(#layerLight)" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="40" y="453" width="6" height="70" rx="3" fill="#2F6BFF"/>
+  <text x="68" y="483" font-size="15" font-weight="700" fill="#1F3A93">数据持久层</text>
+  <text x="200" y="483" font-size="12" fill="#6B7A90">SQLite / PostgreSQL · 16 张核心表</text>
+  <text x="200" y="505" font-size="11" fill="#8B9AB0">users · approval_records · approval_stage_histories · notifications · resource_bookings · api_keys · audit_logs · ...</text>
+
+  <rect x="615" y="453" width="545" height="70" rx="10" fill="url(#layerLight)" stroke="#22C55E" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="615" y="453" width="6" height="70" rx="3" fill="#22C55E"/>
+  <text x="643" y="483" font-size="15" font-weight="700" fill="#1F3A93">缓存与基础设施层</text>
+  <text x="800" y="483" font-size="12" fill="#6B7A90">Redis 缓存 · 限流 · Key 池原子计数 · 健康检查</text>
+  <text x="800" y="505" font-size="11" fill="#8B9AB0">结构化日志 · 审计追踪 · 一键启停 · 环境自动检测</text>
+
+  <line x1="312" y1="523" x2="312" y2="548" stroke="#2F6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="888" y1="523" x2="888" y2="548" stroke="#2F6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Bottom: 安全与运维贯穿 -->
+  <rect x="40" y="553" width="1120" height="50" rx="10" fill="rgba(34,197,94,0.05)" stroke="#22C55E" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="68" y="583" font-size="14" font-weight="700" fill="#22C55E">贯穿全栈：安全（JWT + bcrypt + Fernet + MIME 校验 + 软删除）· 降级（云端→本地→规则三层）· 监控（概览/日志/错误三面板）· 多学校 Tenant 隔离</text>
+
+  <!-- Side labels -->
+  <rect x="0" y="700" width="1200" height="1" fill="none"/>
+</svg>

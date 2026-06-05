@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  background: #F8FBFF;
+  color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography Hierarchy (classroom-optimized: large + high contrast) ── */
+/* H1-lg: hero — 56px bold */
+/* H1: page title — 48px bold */
+/* H2: subtitle — 24px semibold */
+/* H3: card title — 20px semibold */
+/* Body: description — 16px medium gray */
+/* Label: section tag — 14px */
+
+.t-h1 { font-size: 48px; font-weight: 700; line-height: 1.2; }
+.t-h1-lg { font-size: 56px; font-weight: 700; line-height: 1.15; }
+.t-h2 { font-size: 24px; font-weight: 500; line-height: 1.4; color: #4B5563; }
+.t-h3 { font-size: 20px; font-weight: 600; line-height: 1.35; }
+.t-body { font-size: 16px; font-weight: 400; color: #4B5563; line-height: 1.5; }
+.t-label { font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ── Glass card (standardized) ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(54, 123, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(54, 123, 255, 0.05), 0 1px 4px rgba(54, 123, 255, 0.03);
+}
+
+.glass-card:hover {
+  box-shadow: 0 8px 40px rgba(54, 123, 255, 0.08), 0 2px 8px rgba(54, 123, 255, 0.05);
+  border-color: rgba(54, 123, 255, 0.18);
+}
+
+/* Accent variants — purple */
+.glass-card-accent-purple {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(123, 92, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(123, 92, 255, 0.05);
+}
+
+/* Accent variants — green */
+.glass-card-accent-green {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(57, 197, 137, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(57, 197, 137, 0.05);
+}
+
+/* Accent variants — amber */
+.glass-card-accent-amber {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 184, 108, 0.15);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(255, 184, 108, 0.06);
+}
+
+/* ── Page progress bar ── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #367BFF, #5B8CFF, #7B5CFF);
+  z-index: 100;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Navigation dots ── */
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(54, 123, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background: #367BFF;
+  width: 32px;
+  border-radius: 6px;
+}
+
+.nav-dot:hover {
+  background: rgba(54, 123, 255, 0.40);
+}
+
+/* ── Mermaid diagram ── */
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── SVG diagram shared ── */
+.diagram-line {
+  stroke: #367BFF;
+  stroke-width: 2;
+  fill: none;
+}
+
+.diagram-arrow {
+  fill: #367BFF;
+}
+
+/* ── Screenshot placeholder (simplified: no filename clutter) ── */
+.screenshot-placeholder {
+  background: linear-gradient(135deg, #EEF6FF 0%, #F4F8FF 50%, #F8FBFF 100%);
+  border: 2px dashed rgba(54, 123, 255, 0.25);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(54, 123, 255, 0.45);
+  font-size: 13px;
+  gap: 6px;
+  min-height: 200px;
+}
+
+.screenshot-placeholder .icon {
+  font-size: 36px;
+  opacity: 0.35;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(54, 123, 255, 0.20); border-radius: 2px; }
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #367BFF 0%, #7B5CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Dot pattern background ── */
+.dot-pattern {
+  background-image: radial-gradient(rgba(54, 123, 255, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Low-saturation card backgrounds ── */
+.bg-card-blue   { background-color: #F0F6FF; }
+.bg-card-purple { background-color: #F7F3FF; }
+.bg-card-green  { background-color: #F1FBF7; }
+
+/* ── Standardized icon mark (low-sat red x-mark replacement) ── */
+.icon-x-mark {
+  color: #FCA5A5;
+  font-weight: 600;
+}

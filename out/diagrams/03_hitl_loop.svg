@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF6FF"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C6BFF"/>
+      <stop offset="100%" stop-color="#5B4FCC"/>
+    </linearGradient>
+    <linearGradient id="evGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="humanGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2F6BFF"/>
+      <stop offset="100%" stop-color="#1F3A93"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#1F3A93">Human-in-the-Loop 人机协同审批模型</text>
+  <text x="600" y="65" text-anchor="middle" font-size="13" fill="#6B7A90">AI 提供证据和建议 · 人保留最终审批权 · 依据可追溯 · 状态可追踪</text>
+
+  <!-- Three columns: AI | Evidence | Human -->
+
+  <!-- ===== LEFT: AI 辅助 ===== -->
+  <rect x="30" y="90" width="360" height="570" rx="14" fill="rgba(124,107,255,0.03)" stroke="#7C6BFF" stroke-width="1.5"/>
+  <rect x="30" y="90" width="360" height="40" rx="14" fill="url(#aiGrad)"/>
+  <rect x="30" y="116" width="360" height="14" fill="url(#aiGrad)"/>
+  <text x="210" y="116" text-anchor="middle" font-size="17" font-weight="700" fill="#FFF">🤖 AI 辅助层</text>
+  <text x="210" y="148" text-anchor="middle" font-size="11" fill="#7C6BFF">机器负责：信息处理与建议</text>
+
+  <rect x="50" y="165" width="320" height="52" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="187" font-size="13" font-weight="700" fill="#7C6BFF">OCR 材料识别</text>
+  <text x="70" y="207" font-size="11" fill="#6B7A90">多模态 LLM / EasyOCR 提取文字与字段</text>
+
+  <rect x="50" y="228" width="320" height="52" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="250" font-size="13" font-weight="700" fill="#7C6BFF">字段归一化映射</text>
+  <text x="70" y="270" font-size="11" fill="#6B7A90">中英文字段自动映射到模板标准 key</text>
+
+  <rect x="50" y="291" width="320" height="52" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="313" font-size="13" font-weight="700" fill="#7C6BFF">RAG 政策检索</text>
+  <text x="70" y="333" font-size="11" fill="#6B7A90">TF-IDF 匹配相关政策条文与检查项</text>
+
+  <rect x="50" y="354" width="320" height="52" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="376" font-size="13" font-weight="700" fill="#7C6BFF">风险等级判定</text>
+  <text x="70" y="396" font-size="11" fill="#6B7A90">本地 Qwen3-14B 逐项合规分析</text>
+
+  <rect x="50" y="417" width="320" height="52" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="439" font-size="13" font-weight="700" fill="#7C6BFF">意见草稿生成</text>
+  <text x="70" y="459" font-size="11" fill="#6B7A90">根据分析结果生成审批建议文本</text>
+
+  <rect x="50" y="480" width="320" height="52" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="502" font-size="13" font-weight="700" fill="#7C6BFF">相似案例推荐</text>
+  <text x="70" y="522" font-size="11" fill="#6B7A90">检索历史审批记录辅助决策参考</text>
+
+  <text x="210" y="560" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="700">⚠ AI 不拥有审批权</text>
+
+  <!-- Arrows from AI to Evidence -->
+  <line x1="390" y1="225" x2="430" y2="225" stroke="#7C6BFF" stroke-width="1.5" marker-end="url(#aRight)"/>
+  <line x1="390" y1="320" x2="430" y2="320" stroke="#7C6BFF" stroke-width="1.5" marker-end="url(#aRight)"/>
+  <line x1="390" y1="420" x2="430" y2="420" stroke="#7C6BFF" stroke-width="1.5" marker-end="url(#aRight)"/>
+  <defs><marker id="aRight" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7C6BFF"/></marker></defs>
+
+  <!-- ===== MIDDLE: Evidence 证据层 ===== -->
+  <rect x="440" y="90" width="320" height="570" rx="14" fill="rgba(245,158,11,0.03)" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="440" y="90" width="320" height="40" rx="14" fill="url(#evGrad)"/>
+  <rect x="440" y="116" width="320" height="14" fill="url(#evGrad)"/>
+  <text x="600" y="116" text-anchor="middle" font-size="17" font-weight="700" fill="#FFF">📋 Evidence 证据层</text>
+  <text x="600" y="148" text-anchor="middle" font-size="11" fill="#F59E0B">可解释、可追溯、可核查</text>
+
+  <rect x="460" y="165" width="280" height="70" rx="8" fill="#FFF" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  <text x="480" y="188" font-size="13" font-weight="700" fill="#F59E0B">政策依据引用</text>
+  <text x="480" y="208" font-size="11" fill="#6B7A90">每条分析附带原文引用</text>
+  <text x="480" y="225" font-size="11" fill="#8B9AB0">例：「学生请假管理办法第3条」</text>
+
+  <rect x="460" y="248" width="280" height="70" rx="8" fill="#FFF" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  <text x="480" y="271" font-size="13" font-weight="700" fill="#F59E0B">逐项合规检查</text>
+  <text x="480" y="291" font-size="11" fill="#6B7A90">必填/范围/查重/材料完整性</text>
+  <text x="480" y="308" font-size="11" fill="#8B9AB0">每项标注 通过/警告/不通过</text>
+
+  <rect x="460" y="331" width="280" height="70" rx="8" fill="#FFF" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  <text x="480" y="354" font-size="13" font-weight="700" fill="#F59E0B">风险等级可视化</text>
+  <text x="480" y="374" font-size="11" fill="#6B7A90">高 (🔴 建议驳回)</text>
+  <text x="480" y="391" font-size="11" fill="#8B9AB0">中 (🟡 需修改) · 低 (🟢 基本合规)</text>
+
+  <rect x="460" y="414" width="280" height="70" rx="8" fill="#FFF" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  <text x="480" y="437" font-size="13" font-weight="700" fill="#F59E0B">推荐动作按钮</text>
+  <text x="480" y="457" font-size="11" fill="#6B7A90">按风险等级高亮对应按钮</text>
+  <text x="480" y="474" font-size="11" fill="#8B9AB0">高风险→红色驳回 低风险→绿色通过</text>
+
+  <rect x="460" y="497" width="280" height="55" rx="8" fill="rgba(245,158,11,0.08)" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="480" y="520" font-size="12" font-weight="700" fill="#F59E0B">相似案例参考</text>
+  <text x="480" y="540" font-size="11" fill="#6B7A90">同类型历史审批结果与处理方式</text>
+
+  <!-- Arrows from Evidence to Human -->
+  <line x1="760" y1="250" x2="800" y2="250" stroke="#F59E0B" stroke-width="1.5" marker-end="url(#aRight2)"/>
+  <line x1="760" y1="350" x2="800" y2="350" stroke="#F59E0B" stroke-width="1.5" marker-end="url(#aRight2)"/>
+  <line x1="760" y1="450" x2="800" y2="450" stroke="#F59E0B" stroke-width="1.5" marker-end="url(#aRight2)"/>
+  <defs><marker id="aRight2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#F59E0B"/></marker></defs>
+
+  <!-- ===== RIGHT: Human 决策 ===== -->
+  <rect x="810" y="90" width="360" height="570" rx="14" fill="rgba(47,107,255,0.03)" stroke="#2F6BFF" stroke-width="2"/>
+  <rect x="810" y="90" width="360" height="40" rx="14" fill="url(#humanGrad)"/>
+  <rect x="810" y="116" width="360" height="14" fill="url(#humanGrad)"/>
+  <text x="990" y="116" text-anchor="middle" font-size="17" font-weight="700" fill="#FFF">👤 人工决策层</text>
+  <text x="990" y="148" text-anchor="middle" font-size="11" fill="#2F6BFF">人类负责：最终行政决定</text>
+
+  <rect x="830" y="170" width="320" height="70" rx="10" fill="#FFF" stroke="#22C55E" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="860" y="198" font-size="15" font-weight="700" fill="#22C55E">✅ 通过 (Approve)</text>
+  <text x="860" y="220" font-size="11" fill="#6B7A90">AI 辅助确认合规后人工点击通过</text>
+
+  <rect x="830" y="255" width="320" height="70" rx="10" fill="#FFF" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="860" y="283" font-size="15" font-weight="700" fill="#F59E0B">🔄 需修改 (Needs Revision)</text>
+  <text x="860" y="305" font-size="11" fill="#6B7A90">附带 AI 缺失项标记，学生据此修改重提</text>
+
+  <rect x="830" y="340" width="320" height="70" rx="10" fill="#FFF" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="860" y="368" font-size="15" font-weight="700" fill="#EF4444">❌ 驳回 (Reject)</text>
+  <text x="860" y="390" font-size="11" fill="#6B7A90">AI 标注不合规证据，审批人最终裁定</text>
+
+  <rect x="830" y="430" width="320" height="80" rx="10" fill="rgba(47,107,255,0.06)" stroke="#2F6BFF" stroke-width="1.5" stroke-dasharray="5,2"/>
+  <text x="990" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#2F6BFF">🎯 核心原则</text>
+  <text x="860" y="480" font-size="12" fill="#1F3A93">▪ AI 输出是「证据和建议」，不是行政结论</text>
+  <text x="860" y="500" font-size="12" fill="#1F3A93">▪ 审批人可核实每一条 AI 依据并独立决策</text>
+
+  <!-- Bottom: States -->
+  <rect x="30" y="670" width="1140" height="28" rx="8" fill="rgba(47,107,255,0.05)"/>
+  <text x="600" y="689" text-anchor="middle" font-size="12" fill="#6B7A90">
+    状态追踪：pending → approved / rejected / needs_revision → withdrawn (撤回) → cancelled (结案)
+    · 阶段历史完整记录 · 支持撤回重提与催办
+  </text>
+</svg>

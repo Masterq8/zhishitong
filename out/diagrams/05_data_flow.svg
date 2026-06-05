@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF6FF"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2F6BFF"/></marker>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <text x="600" y="40" text-anchor="middle" font-size="23" font-weight="700" fill="#1F3A93">数据流设计</text>
+  <text x="600" y="62" text-anchor="middle" font-size="13" fill="#6B7A90">从申请提交到通知归档的全链路数据流动——16 张核心表协同工作</text>
+
+  <!-- Central data flow: Left to Right -->
+
+  <!-- Source: User -->
+  <rect x="30" y="95" width="170" height="80" rx="12" fill="#FFF" stroke="#2F6BFF" stroke-width="2" filter="url(#shadow)"/>
+  <text x="115" y="125" text-anchor="middle" font-size="15" font-weight="700" fill="#2F6BFF">👨‍🎓 用户提交</text>
+  <text x="115" y="148" text-anchor="middle" font-size="11" fill="#6B7A90">审批申请 + 附件材料</text>
+  <text x="115" y="165" text-anchor="middle" font-size="10" fill="#8B9AB0">19 类事务 · OCR 识别</text>
+
+  <line x1="200" y1="135" x2="235" y2="135" stroke="#2F6BFF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- approval_records -->
+  <rect x="245" y="95" width="180" height="80" rx="10" fill="#FFF" stroke="#2F6BFF" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="335" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#2F6BFF">📋 approval_records</text>
+  <text x="335" y="142" text-anchor="middle" font-size="10.5" fill="#6B7A90">审批记录主表 · document_type</text>
+  <text x="335" y="160" text-anchor="middle" font-size="10.5" fill="#6B7A90">status · current_stage · form_data</text>
+
+  <line x1="425" y1="135" x2="460" y2="135" stroke="#2F6BFF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- approval_stage_histories -->
+  <rect x="470" y="95" width="190" height="80" rx="10" fill="#FFF" stroke="#F59E0B" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="565" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#F59E0B">📜 stage_histories</text>
+  <text x="565" y="142" text-anchor="middle" font-size="10.5" fill="#6B7A90">阶段流转记录 · stage_type</text>
+  <text x="565" y="160" text-anchor="middle" font-size="10.5" fill="#6B7A90">action · comment · reviewer_id</text>
+
+  <!-- Branch: Notifications -->
+  <line x1="660" y1="110" x2="700" y2="60" stroke="#22C55E" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="710" y="25" width="170" height="70" rx="10" fill="#FFF" stroke="#22C55E" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="795" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#22C55E">🔔 notifications</text>
+  <text x="795" y="72" text-anchor="middle" font-size="10.5" fill="#6B7A90">8 种通知类型 · 红点角标</text>
+  <text x="795" y="88" text-anchor="middle" font-size="10.5" fill="#6B7A90">分类筛选 · 服务端分页</text>
+
+  <!-- Branch: Logs -->
+  <line x1="660" y1="160" x2="700" y2="210" stroke="#7C6BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="710" y="180" width="170" height="70" rx="10" fill="#FFF" stroke="#7C6BFF" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="795" y="207" text-anchor="middle" font-size="13" font-weight="700" fill="#7C6BFF">📝 audit_logs</text>
+  <text x="795" y="227" text-anchor="middle" font-size="10.5" fill="#6B7A90">审计日志 · 全链路追踪</text>
+  <text x="795" y="243" text-anchor="middle" font-size="10.5" fill="#6B7A90">操作人 · 时间 · 详情</text>
+
+  <!-- Main flow continues -->
+  <line x1="660" y1="135" x2="700" y2="135" stroke="#2F6BFF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Resources & Users -->
+  <rect x="710" y="100" width="170" height="70" rx="10" fill="#FFF" stroke="#2F6BFF" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="795" y="127" text-anchor="middle" font-size="13" font-weight="700" fill="#2F6BFF">📅 resource_bookings</text>
+  <text x="795" y="147" text-anchor="middle" font-size="10.5" fill="#6B7A90">会议室 + 车辆预约</text>
+  <text x="795" y="163" text-anchor="middle" font-size="10.5" fill="#6B7A90">时间冲突检测</text>
+
+  <!-- === LOWER SECTION: Complete Data Model === -->
+  <text x="600" y="290" text-anchor="middle" font-size="15" font-weight="700" fill="#1F3A93">完整数据模型（16 张表）</text>
+
+  <!-- Table grid -->
+  <rect x="30" y="310" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="165" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">users</text>
+  <text x="165" y="355" text-anchor="middle" font-size="10" fill="#6B7A90">用户 · 角色 · 学校 · 密码</text>
+
+  <rect x="315" y="310" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="450" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">approval_records</text>
+  <text x="450" y="355" text-anchor="middle" font-size="10" fill="#6B7A90">审批主记录 · 状态 · 表单数据</text>
+
+  <rect x="600" y="310" width="270" height="55" rx="8" fill="#FFF" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  <text x="735" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#F59E0B">approval_stage_histories</text>
+  <text x="735" y="355" text-anchor="middle" font-size="10" fill="#6B7A90">阶段流转 · 审批意见</text>
+
+  <rect x="885" y="310" width="285" height="55" rx="8" fill="#FFF" stroke="#22C55E" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1028" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#22C55E">notifications</text>
+  <text x="1028" y="355" text-anchor="middle" font-size="10" fill="#6B7A90">8 类通知 · 已读/未读 · 跳转</text>
+
+  <rect x="30" y="377" width="270" height="55" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="165" y="402" text-anchor="middle" font-size="12" font-weight="700" fill="#7C6BFF">admin_audit_logs</text>
+  <text x="165" y="422" text-anchor="middle" font-size="10" fill="#6B7A90">操作审计 · 全链路追踪</text>
+
+  <rect x="315" y="377" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="450" y="402" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">api_keys</text>
+  <text x="450" y="422" text-anchor="middle" font-size="10" fill="#6B7A90">加密存储 · 配额 · 状态</text>
+
+  <rect x="600" y="377" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="735" y="402" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">resource_* (3 tables)</text>
+  <text x="735" y="422" text-anchor="middle" font-size="10" fill="#6B7A90">会议室 · 车辆 · 预约记录</text>
+
+  <rect x="885" y="377" width="285" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1028" y="402" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">user_preferences</text>
+  <text x="1028" y="422" text-anchor="middle" font-size="10" fill="#6B7A90">侧边栏收藏夹 · 持久化</text>
+
+  <!-- Row 3 -->
+  <rect x="30" y="444" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="165" y="469" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">announcements</text>
+  <text x="165" y="489" text-anchor="middle" font-size="10" fill="#6B7A90">公告 · 制度文库 · 置顶</text>
+
+  <rect x="315" y="444" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="450" y="469" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">approval_delegations</text>
+  <text x="450" y="489" text-anchor="middle" font-size="10" fill="#6B7A90">审批代理委托 · 时间段</text>
+
+  <rect x="600" y="444" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="735" y="469" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">approval_opinion_templates</text>
+  <text x="735" y="489" text-anchor="middle" font-size="10" fill="#6B7A90">预设批语 · 一键填入</text>
+
+  <rect x="885" y="444" width="285" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1028" y="469" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">quota_logs</text>
+  <text x="1028" y="489" text-anchor="middle" font-size="10" fill="#6B7A90">OCR 配额 · Key 使用记录</text>
+
+  <!-- Last row -->
+  <rect x="30" y="511" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="165" y="536" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">rule_configs</text>
+  <text x="165" y="556" text-anchor="middle" font-size="10" fill="#6B7A90">规则引擎配置 · 动态加载</text>
+
+  <rect x="315" y="511" width="270" height="55" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="450" y="536" text-anchor="middle" font-size="12" font-weight="700" fill="#2F6BFF">system_logs</text>
+  <text x="450" y="556" text-anchor="middle" font-size="10" fill="#6B7A90">结构化日志 · 错误聚合</text>
+
+  <!-- Redis & Cache -->
+  <rect x="600" y="511" width="570" height="55" rx="8" fill="rgba(34,197,94,0.06)" stroke="#22C55E" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="885" y="538" text-anchor="middle" font-size="12" font-weight="700" fill="#22C55E">⚡ Redis 缓存层（非关系型）</text>
+  <text x="885" y="558" text-anchor="middle" font-size="10" fill="#6B7A90">OCR 结果缓存 · API Key 原子计数 · 速率限制 · 通知轮询状态</text>
+
+  <!-- Flows annotation -->
+  <rect x="30" y="585" width="1140" height="38" rx="8" fill="rgba(47,107,255,0.05)"/>
+  <text x="600" y="610" text-anchor="middle" font-size="12" fill="#6B7A90">
+    🔄 数据流：user 提交 → approval_records (pending) → stage_histories (逐阶段) → notifications (推送) → audit_logs (记录)
+    · 数据隔离：school + user_id + role 三层过滤
+    · 软删除 & 审计：无物理删除，所有操作可追溯
+  </text>
+
+  <!-- Legend -->
+  <rect x="30" y="640" width="555" height="50" rx="8" fill="#FFF" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="50" y="663" font-size="11" font-weight="700" fill="#1F3A93">统计</text>
+  <text x="50" y="680" font-size="10.5" fill="#6B7A90">16 张 ORM 模型 · SQLAlchemy · SQLite/PostgreSQL · 99 API 端点 · ~17,000 行代码</text>
+
+  <rect x="600" y="640" width="570" height="50" rx="8" fill="rgba(34,197,94,0.05)" stroke="#22C55E" stroke-width="1"/>
+  <text x="620" y="663" font-size="11" font-weight="700" fill="#22C55E">关键设计决策</text>
+  <text x="620" y="680" font-size="10.5" fill="#6B7A90">SQLite 零配置部署 → PostgreSQL 无缝切换 · Redis 可选但推荐 · Fernet 加密 + bcrypt 哈希 · 软删除</text>
+</svg>

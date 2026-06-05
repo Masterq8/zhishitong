@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF6FF"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C6BFF"/>
+      <stop offset="100%" stop-color="#5B4FCC"/>
+    </linearGradient>
+    <linearGradient id="local" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2F6BFF"/>
+      <stop offset="100%" stop-color="#1F3A93"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <text x="600" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#1F3A93">AI 分层路由技术路线</text>
+  <text x="600" y="60" text-anchor="middle" font-size="13" fill="#6B7A90">按任务特性选择模型能力：云端语义抽取 → 本地合规分析 → 规则兜底</text>
+
+  <!-- ====== CLOUD LAYER ====== -->
+  <rect x="40" y="80" width="360" height="620" rx="14" fill="rgba(124,107,255,0.04)" stroke="#7C6BFF" stroke-width="1"/>
+  <rect x="40" y="80" width="360" height="36" rx="14" fill="#7C6BFF"/>
+  <rect x="40" y="102" width="360" height="14" fill="#7C6BFF"/>
+  <text x="220" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">☁️ 云端层（复杂语义）</text>
+
+  <!-- Cloud tasks -->
+  <rect x="58" y="132" width="324" height="65" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="78" y="155" font-size="14" font-weight="700" fill="#7C6BFF">自然语言意图识别</text>
+  <text x="78" y="175" font-size="11" fill="#6B7A90">「我导师叫我去滨州调研…」→ 请假申请</text>
+  <text x="78" y="190" font-size="11" fill="#8B9AB0">模型：qwen-turbo / qwen-plus (DashScope)</text>
+
+  <line x1="220" y1="197" x2="220" y2="212" stroke="#7C6BFF" stroke-width="1" marker-end="url(#a1)"/>
+  <defs><marker id="a1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7C6BFF"/></marker></defs>
+
+  <rect x="58" y="216" width="324" height="65" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="78" y="239" font-size="14" font-weight="700" fill="#7C6BFF">字段抽取与 JSON 填充</text>
+  <text x="78" y="259" font-size="11" fill="#6B7A90">判别 19 类事务类型 → 结构化字段映射</text>
+  <text x="78" y="274" font-size="11" fill="#8B9AB0">_normalize_json_keys 中英文字段归一化</text>
+
+  <line x1="220" y1="281" x2="220" y2="296" stroke="#7C6BFF" stroke-width="1" marker-end="url(#a1)"/>
+
+  <rect x="58" y="300" width="324" height="65" rx="8" fill="#FFF" stroke="#7C6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="78" y="323" font-size="14" font-weight="700" fill="#7C6BFF">多模态 OCR 识别</text>
+  <text x="78" y="343" font-size="11" fill="#6B7A90">图片/PDF → 结构化 JSON（Pro 学校专属）</text>
+  <text x="78" y="358" font-size="11" fill="#8B9AB0">模型：qwen-vl-max · 月配额 30 次</text>
+
+  <line x1="220" y1="365" x2="220" y2="382" stroke="#7C6BFF" stroke-width="1" marker-end="url(#a1)"/>
+
+  <rect x="58" y="386" width="324" height="50" rx="8" fill="rgba(124,107,255,0.08)" stroke="#7C6BFF" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="78" y="409" font-size="12" font-weight="700" fill="#7C6BFF">降级策略</text>
+  <text x="78" y="425" font-size="11" fill="#6B7A90">API 不可用 → 规则兜底（正则匹配「明天/后天」）</text>
+
+  <!-- ====== LOCAL LAYER ====== -->
+  <rect x="420" y="80" width="360" height="620" rx="14" fill="rgba(47,107,255,0.04)" stroke="#2F6BFF" stroke-width="1"/>
+  <rect x="420" y="80" width="360" height="36" rx="14" fill="#2F6BFF"/>
+  <rect x="420" y="102" width="360" height="14" fill="#2F6BFF"/>
+  <text x="600" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">🖥️ 本地层（隐私 + 离线）</text>
+
+  <rect x="438" y="132" width="324" height="80" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="458" y="155" font-size="14" font-weight="700" fill="#2F6BFF">RAG 政策检索与分析</text>
+  <text x="458" y="175" font-size="11" fill="#6B7A90">TF-IDF 字符级 n-gram (2,4) 检索</text>
+  <text x="458" y="192" font-size="11" fill="#8B9AB0">2025 版政策知识库 · cosine_similarity 匹配</text>
+  <text x="458" y="207" font-size="11" fill="#22C55E">⚡ 无需 GPU · 冷启动 &lt;1s · 延迟 &lt;10ms</text>
+
+  <line x1="600" y1="212" x2="600" y2="230" stroke="#2F6BFF" stroke-width="1" marker-end="url(#a2)"/>
+  <defs><marker id="a2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2F6BFF"/></marker></defs>
+
+  <rect x="438" y="234" width="324" height="80" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="458" y="257" font-size="14" font-weight="700" fill="#2F6BFF">Qwen3-14B 合规分析</text>
+  <text x="458" y="277" font-size="11" fill="#6B7A90">本地 llama.cpp 推理 · OpenAI 兼容 API</text>
+  <text x="458" y="294" font-size="11" fill="#8B9AB0">风险等级判定 · 逐项合规检查 · 意见草稿生成</text>
+  <text x="458" y="309" font-size="11" fill="#22C55E">🔒 数据不出服务器 · 隐私可控</text>
+
+  <line x1="600" y1="314" x2="600" y2="332" stroke="#2F6BFF" stroke-width="1" marker-end="url(#a2)"/>
+
+  <rect x="438" y="336" width="324" height="65" rx="8" fill="#FFF" stroke="#2F6BFF" stroke-width="1" filter="url(#shadow)"/>
+  <text x="458" y="359" font-size="14" font-weight="700" fill="#2F6BFF">EasyOCR 降级识别</text>
+  <text x="458" y="379" font-size="11" fill="#6B7A90">云端 OCR 不可用时的本地替代方案</text>
+  <text x="458" y="394" font-size="11" fill="#8B9AB0">支持中英文混合 · Free 学校主力方案</text>
+
+  <line x1="600" y1="401" x2="600" y2="418" stroke="#2F6BFF" stroke-width="1" marker-end="url(#a2)"/>
+
+  <rect x="438" y="422" width="324" height="80" rx="8" fill="rgba(47,107,255,0.08)" stroke="#2F6BFF" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="458" y="445" font-size="14" font-weight="700" fill="#2F6BFF">MLX LoRA 微调管线</text>
+  <text x="458" y="465" font-size="11" fill="#6B7A90">100 条语料 → LoRA 训练 → 融合 → GGUF 转换</text>
+  <text x="458" y="482" font-size="11" fill="#8B9AB0">专用：Apple Silicon (Metal) · 备选：PEFT (CUDA/CPU)</text>
+  <text x="458" y="497" font-size="11" fill="#22C55E">📦 LoRA 权重仅 847KB · 全流程一键执行</text>
+
+  <!-- ====== RULE LAYER ====== -->
+  <rect x="800" y="80" width="360" height="620" rx="14" fill="rgba(34,197,94,0.04)" stroke="#22C55E" stroke-width="1"/>
+  <rect x="800" y="80" width="360" height="36" rx="14" fill="#22C55E"/>
+  <rect x="800" y="102" width="360" height="14" fill="#22C55E"/>
+  <text x="980" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">🛡️ 规则兜底层（确定性）</text>
+
+  <rect x="818" y="132" width="324" height="80" rx="8" fill="#FFF" stroke="#22C55E" stroke-width="1" filter="url(#shadow)"/>
+  <text x="838" y="155" font-size="14" font-weight="700" fill="#22C55E">硬性规则预审</text>
+  <text x="838" y="175" font-size="11" fill="#6B7A90">必填字段完整性 · 数值范围校验 · 发票号查重</text>
+  <text x="838" y="192" font-size="11" fill="#8B9AB0">金额阈值自动跳过审批阶段</text>
+  <text x="838" y="207" font-size="11" fill="#22C55E">⚡ 零延迟 · 100% 确定性 · 不可绕过</text>
+
+  <line x1="980" y1="212" x2="980" y2="230" stroke="#22C55E" stroke-width="1" marker-end="url(#a3)"/>
+  <defs><marker id="a3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#22C55E"/></marker></defs>
+
+  <rect x="818" y="234" width="324" height="80" rx="8" fill="#FFF" stroke="#22C55E" stroke-width="1" filter="url(#shadow)"/>
+  <text x="838" y="257" font-size="14" font-weight="700" fill="#22C55E">正则兜底提取</text>
+  <text x="838" y="277" font-size="11" fill="#6B7A90">「明天/后天」→ 自动计算具体日期</text>
+  <text x="838" y="294" font-size="11" fill="#8B9AB0">「长途汽车/高铁」→ 交通工具映射</text>
+  <text x="838" y="309" font-size="11" fill="#8B9AB0">「公假/事假」→ 请假类型分类</text>
+
+  <line x1="980" y1="314" x2="980" y2="332" stroke="#22C55E" stroke-width="1" marker-end="url(#a3)"/>
+
+  <rect x="818" y="336" width="324" height="80" rx="8" fill="#FFF" stroke="#22C55E" stroke-width="1" filter="url(#shadow)"/>
+  <text x="838" y="359" font-size="14" font-weight="700" fill="#22C55E">金额与类别规则</text>
+  <text x="838" y="379" font-size="11" fill="#6B7A90">_intent_regex_fill 金额正则提取兜底</text>
+  <text x="838" y="396" font-size="11" fill="#8B9AB0">「公务餐饮费」→ 自动映射到「会议费」</text>
+  <text x="838" y="411" font-size="11" fill="#8B9AB0">金额 ≤ 5000 自动跳过学校级审批</text>
+
+  <line x1="980" y1="416" x2="980" y2="434" stroke="#22C55E" stroke-width="1" marker-end="url(#a3)"/>
+
+  <rect x="818" y="438" width="324" height="65" rx="8" fill="rgba(34,197,94,0.08)" stroke="#22C55E" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="838" y="461" font-size="13" font-weight="700" fill="#22C55E">API Key 池故障转移</text>
+  <text x="838" y="481" font-size="11" fill="#6B7A90">多 Key 轮询 · 失败计数自动禁用 · Redis 原子计数</text>
+  <text x="838" y="496" font-size="11" fill="#22C55E">🔑 任一 Key 失效不阻断全系统</text>
+
+  <!-- Bottom: Architecture note -->
+  <rect x="40" y="715" width="1120" height="28" rx="8" fill="rgba(47,107,255,0.06)"/>
+  <text x="600" y="734" text-anchor="middle" font-size="12" fill="#6B7A90">架构原则：云端做「理解」· 本地做「判断」· 规则做「兜底」 —— 任一环节故障不影响核心审批流程</text>
+</svg>

@@ -1,0 +1,37 @@
+- generic [ref=e3]:
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e13]: Competition Defense · 比赛答辩
+      - heading "智审通" [level=1] [ref=e14]
+      - paragraph [ref=e15]: Human-in-the-Loop Smart Approval System
+      - paragraph [ref=e16]: AI 辅助 · 人工决策 · 高校审批智能化
+      - generic [ref=e17]:
+        - generic [ref=e18]: AI Pipeline
+        - generic [ref=e19]: RAG 知识库
+        - generic [ref=e20]: 多角色协同
+        - generic [ref=e21]: Human-in-the-Loop
+    - generic [ref=e23]:
+      - generic [ref=e24]: 🖼️
+      - generic [ref=e25]: "[运行截图]"
+      - generic [ref=e26]: 01_system_overview.png
+      - generic [ref=e27]: 展示智审通系统主工作台界面
+  - generic [ref=e28]:
+    - button "←" [disabled] [ref=e29]
+    - button "Slide 1" [ref=e30] [cursor=pointer]
+    - button "Slide 2" [ref=e31] [cursor=pointer]
+    - button "Slide 3" [ref=e32] [cursor=pointer]
+    - button "Slide 4" [ref=e33] [cursor=pointer]
+    - button "Slide 5" [ref=e34] [cursor=pointer]
+    - button "Slide 6" [ref=e35] [cursor=pointer]
+    - button "Slide 7" [ref=e36] [cursor=pointer]
+    - button "Slide 8" [ref=e37] [cursor=pointer]
+    - button "Slide 9" [ref=e38] [cursor=pointer]
+    - button "Slide 10" [ref=e39] [cursor=pointer]
+    - button "Slide 11" [ref=e40] [cursor=pointer]
+    - button "Slide 12" [ref=e41] [cursor=pointer]
+    - button "Slide 13" [ref=e42] [cursor=pointer]
+    - button "Slide 14" [ref=e43] [cursor=pointer]
+    - button "Slide 15" [ref=e44] [cursor=pointer]
+    - button "→" [ref=e45] [cursor=pointer]
+  - generic [ref=e46]: 01 / 15
+  - generic [ref=e47]: ← → 导航 · 空格下一页
